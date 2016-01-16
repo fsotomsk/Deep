@@ -33,8 +33,8 @@
 
     <logging>
         <log type="coverage-html" target="tmp/coverage"/>
-        <!--log type="coverage-clover" target="tmp/coverage/clover.xml"/>
-        <log type="coverage-crap4j" target="tmp/coverage/crap4j.xml"/>
+        <log type="coverage-clover" target="tmp/coverage/clover.xml"/>
+        <!--log type="coverage-crap4j" target="tmp/coverage/crap4j.xml"/>
         <log type="coverage-xml" target="tmp/coverage/xml"/>
         <log type="junit" target="tmp/coverage/junit.xml"/-->
     </logging>
