@@ -21,11 +21,11 @@ class Autoload
     /**
      * @var array
      */
-    private $includePaths     = [];
+    private $includePaths = [];
     /**
      * @var array
      */
-    private $loadedFiles      = [];
+    private $loadedFiles = [];
     /**
      * @var mixed
      */
@@ -35,9 +35,9 @@ class Autoload
      * Autoload constructor.
      * @param array $paths
      */
-    public function __construct($paths=[])
+    public function __construct($paths = [])
     {
-        if($paths) {
+        if ($paths) {
             $this->includePaths = array_unique($paths);
         }
         spl_autoload_register([$this, 'resolveClass'], true, true);
@@ -57,7 +57,7 @@ class Autoload
      */
     public function addClassPath($path)
     {
-        if(!in_array($path, $this->includePaths)) {
+        if (!in_array($path, $this->includePaths)) {
             $this->includePaths[] = $path;
         }
         return $this->includePaths;
@@ -65,17 +65,17 @@ class Autoload
 
     /**
      * @param string $className
-     * @return bool
+     * @return boolean|null
      */
     public function resolveClass($className)
     {
         $classFileName = str_replace(['_', '\\'], '/', $className) . '.php';
-        foreach($this->includePaths as $path) {
+        foreach ($this->includePaths as $path) {
             $fileName = $path . $classFileName;
-            if(file_exists($fileName)) {
+            if (file_exists($fileName)) {
                 require_once($fileName);
                 $this->loadedFiles[$className] = $fileName;
-                if($this->postLoadHandlers) {
+                if ($this->postLoadHandlers) {
                     foreach ($this->postLoadHandlers as $postLoadHandler) {
                         call_user_func_array($postLoadHandler, [$className]);
                     }
