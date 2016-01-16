@@ -1,11 +1,11 @@
 <?php
 /**
- * Project: cDeep
- * User: fso
- * Date: 07.11.2014
- * Time: 18:15
- * Description: Auto-configuration
- */
+     * Project: cDeep
+     * User: fso
+     * Date: 07.11.2014
+     * Time: 18:15
+     * Description: Auto-configuration
+     */
 
 namespace Deep;
 
