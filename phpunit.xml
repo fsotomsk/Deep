@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         bootstrap="tests/bootstrap.php"
+         beStrictAboutOutputDuringTests="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutTodoAnnotatedTests="true"
+         checkForUnintentionallyCoveredCode="true"
+         forceCoversAnnotation="false"
+         backupStaticAttributes="false"
+         cacheTokens="false"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         mapTestClassNameToCoveredClassName="true"
+         printerClass="PHPUnit_TextUI_ResultPrinter"
+         processIsolation="false"
+         stopOnError="false"
+         stopOnFailure="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         stopOnRisky="false"
+         testSuiteLoaderClass="PHPUnit_Runner_StandardTestSuiteLoader"
+         timeoutForSmallTests="1"
+         timeoutForMediumTests="10"
+         timeoutForLargeTests="60"
+         verbose="true">
+    <testsuites>
+        <testsuite name="Deep">
+            <directory suffix="Test.php">tests/lib/Deep/</directory>
+        </testsuite>
+    </testsuites>
+
+    <logging>
+        <log type="coverage-html" target="tmp/coverage"/>
+        <!--log type="coverage-clover" target="tmp/coverage/clover.xml"/>
+        <log type="coverage-crap4j" target="tmp/coverage/crap4j.xml"/>
+        <log type="coverage-xml" target="tmp/coverage/xml"/>
+        <log type="junit" target="tmp/coverage/junit.xml"/-->
+    </logging>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">lib/Deep/</directory>
+            <exclude>
+                <file>src/autoload.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>
