@@ -36,15 +36,15 @@ class Autoconf
      */
     public function readConfig($className)
     {
-        if(array_key_exists($className, $this->cacheConfigs)) {
+        if (array_key_exists($className, $this->cacheConfigs)) {
             return $this->cacheConfigs[$className];
         }
-        if($className[0] == '/') {
+        if ($className[0] == '/') {
             $className = substr($className, 1);
         }
-        foreach($this->iniPaths as $path) {
+        foreach ($this->iniPaths as $path) {
             $fileName = $path . $className . '.ini';
-            if(file_exists($fileName)) {
+            if (file_exists($fileName)) {
                 $iniConfig = parse_ini_file($fileName, true);
                 $this->cacheConfigs[$className] = $iniConfig;
                 return $iniConfig;
@@ -59,9 +59,9 @@ class Autoconf
      */
     public function configureObject($className)
     {
-        if(property_exists($className, 'autoConfig')) {
+        if (property_exists($className, 'autoConfig')) {
             $Ini = $this->readConfig(str_replace(['\\'], ['/'], $className));
-            if($Ini) {
+            if ($Ini) {
                 $className::$autoConfig = $Ini;
             }
             return $Ini;
