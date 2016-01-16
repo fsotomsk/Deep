@@ -1,12 +1,12 @@
 <?php
 /**
-     * Project: cDeep
-     * User: fso
-     * Date: 07.11.2014
-     * Time: 18:26
-     * Description: Autoloader inclusion.
-     *              Classloader and preconfiguration only.
-     */
+ * Project: cDeep
+ * User: fso
+ * Date: 07.11.2014
+ * Time: 18:26
+ * Description: Autoloader inclusion.
+ *              Classloader and preconfiguration only.
+ */
 
 defined('IS_WEB_ACTION') || define('IS_WEB_ACTION', array_key_exists('REQUEST_URI', $_SERVER));
 defined('WEB_ROOT') || define('WEB_ROOT', realpath($_SERVER['DOCUMENT_ROOT']) . '/');
